@@ -1,0 +1,1182 @@
+{
+	"info": {
+		"_postman_id": "094d0df3-4d8d-4f96-a216-9b5ee28f3cae",
+		"name": "Quality-Eagles Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26312212"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Count Empresas Status Ativos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Armazena a contagem inicial de empresas ativas\", function () {\r",
+											"    let jsonData = pm.response.json();\r",
+											"    let activeCount = jsonData.count;\r",
+											"    pm.globals.set(\"active_count\", activeCount);\r",
+											"    console.log(\"Contagem inicial de empresas ativas:\", activeCount);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company/count?Status =ativo",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company",
+										"count"
+									],
+									"query": [
+										{
+											"key": "Status ",
+											"value": "ativo"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "count empresas status inativos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Armazena a contagem inicial de empresas inativas\", function () {\r",
+											"    let jsonData = pm.response.json();\r",
+											"    let inactiveCount = jsonData.count;\r",
+											"    pm.globals.set(\"inactive_count\", inactiveCount);\r",
+											"    console.log(\"Contagem inicial de empresas inativas:\", inactiveCount);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company/count?status =inativo&",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company",
+										"count"
+									],
+									"query": [
+										{
+											"key": "status ",
+											"value": "inativo"
+										},
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "count empresas",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status Code é 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Media Type é application/json\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"    let contentType = pm.response.headers.get(\"Content-Type\"); \r",
+											"    pm.expect(contentType).to.include(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Armazenar count como variável global\", function () {\r",
+											"    let jsonData = pm.response.json();\r",
+											"    pm.globals.set(\"initial_count\", jsonData.count);\r",
+											"    console.log(\"Valor de count armazenado:\", jsonData.count);\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company/count",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company",
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Count Status Invalid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test('Validate message response', () => {\r",
+											"    pm.expect('O status fornecido é inválido').to.be.equals(pm.response.json().msg);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company/count?status=invalid",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company",
+										"count"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "invalid"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Company",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Contagem de Empresa Ativas em tempo Real",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Verifica se a contagem de empresas Ativas em tempo Real.\", function () {\r",
+											"    let jsonData = pm.response.json();\r",
+											"    let newCount = jsonData.count;\r",
+											"    let activeCount = pm.globals.get(\"active_count\");\r",
+											"\r",
+											"    pm.expect(newCount).to.be.above(parseInt(activeCount), `Count não foi atualizado corretamente. Esperado maior que ${activeCount}`);\r",
+											"    \r",
+											"    console.log(\"Nova contagem de empresas ativas em tempo real:\", newCount);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company/count",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company",
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sem Token de Autentificação",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Erro 'No token provided.'\", function () {\r",
+											"    let jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.errors[0]).to.eql(\"No token provided.\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company/count",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company",
+										"count"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Criar company",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"corporateName\": \"Doces Açucaresbonsk \",\r\n  \"registerCompany\": \"12878992502555\",\r\n  \"mail\": \"docess@acucarrs.com\",\r\n  \"matriz\": \"Teste\",\r\n  \"responsibleContact\": \"Franciscodsklmlo\",\r\n  \"telephone\": \"99999999999999\",\r\n  \"serviceDescription\": \"Testes\",\r\n  \"address\": [\r\n    {\r\n      \"zipCode\": \"04777001\",\r\n      \"city\": \"São Paulo\",\r\n      \"state\": \"SP\",\r\n      \"district\": \"Rua das Flores\",\r\n      \"street\": \"Avenida Interlagos\",\r\n      \"number\": \"50\",\r\n      \"complement\": \"de 4503 ao fim - lado ímpar\",\r\n      \"country\": \"Brasil\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/company",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"company"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Listar Usuario por ID inexistente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Erro 500 - Falha de conversão de ObjectId\", function () {\r",
+											"    let jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(pm.response.code).to.eql(500);  // Espera o código 500\r",
+											"    pm.expect(jsonData.error).to.include(\"CastError\");  // Verifica a mensagem de erro\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/user/67052",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"user",
+										"67052"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/user",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar ID Acesso Negado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status 403 - Token ausente\", function () {\r",
+											"    pm.expect(pm.response.code).to.eql(403); \r",
+											"    pm.expect(pm.response.json().errors[0]).to.eql(\"No token provided.\"); \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/user",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Usuario por ID não encontrado",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/user/670595c1c0a70bc9391dd6f7",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"user",
+										"670595c1c0a70bc9391dd6f7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Usuario por ID com sucesso",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{TokenUser}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://quality-eagles.qacoders.dev.br/api/user/670595c1c0a70bc9391dd6f5",
+									"protocol": "https",
+									"host": [
+										"quality-eagles",
+										"qacoders",
+										"dev",
+										"br"
+									],
+									"path": [
+										"api",
+										"user",
+										"670595c1c0a70bc9391dd6f5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TokenAdmin\", pm.response.json().token);\r",
+									"\r",
+									"pm.globals.set(\"TokenAdmin\", pm.response.json().token);\r",
+									"\r",
+									"pm.collectionVariables.set(\"TokenAdmin\", pm.response.json().token);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success message\" ,() => {\r",
+									"    pm.expect(pm.response.json().msg).to.exist;\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"{{mailAdmin}}\",\r\n  \"password\": \"{{passAdmin}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"TokenUser\", pm.response.json().token);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"success message\" ,() => {\r",
+									"    pm.expect(pm.response.json().msg).to.exist;\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mail\": \"{{mailUser}}\",\r\n  \"password\": \"{{passUser}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"mp.environment.set.ms('msgUser' , pm.response.json().msg)\r",
+									"// verifica o ID do usuario  eu espero que a enviranment \r",
+									"// set nessa variavel o que retornar  do usuario id\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":  \"{{fullName}}\",\r\n    \"mail\": \"{{mailUser}}\",\r\n    \"accessProfile\": \"ADMIN\",\r\n    \"cpf\": \"{{cpf}}\",\r\n    \"password\": \"{{passUser}}\",\r\n    \"confirmPassword\": \"{{passUser}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/user/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User sem contrato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Resposta contém mensagens de erro esperadas\", function () {\r",
+									"    var jsonData = pm.response.json(); \r",
+									"    pm.expect(jsonData.error).to.include(\"O campo nome completo é obrigatório.\");\r",
+									"    pm.expect(jsonData.error).to.include(\"O campo e-mail é obrigatório.\");\r",
+									"    pm.expect(jsonData.error).to.include(\"O campo senha é obrigatório\");\r",
+									"    pm.expect(jsonData.error).to.include(\"O campo CPF é obrigatório!\");\r",
+									"    pm.expect(jsonData.error).to.include(\"O campo perfil de acesso é obrigatório.\");\r",
+									"    pm.expect(jsonData.error).to.include(\"O campo de confirmação de senha é obrigatório.\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quality-eagles.qacoders.dev.br/api/user",
+							"protocol": "https",
+							"host": [
+								"quality-eagles",
+								"qacoders",
+								"dev",
+								"br"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User email e senha em branco",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"   \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//pm.test(\"Status code é 400\", function () {\r",
+									"    //pm.response.to.have.status(400);\r",
+									"//});\r",
+									"pm.test(\"Resposta contém mensagens de erro esperadas\", function () {\r",
+									"    var jsonData = pm.response.json(); \r",
+									"\r",
+									"    pm.expect(jsonData.mail).to.eql(\"O campo e-mail é obrigatório.\");\r",
+									"\r",
+									"    pm.expect(jsonData.password).to.eql(\"O campo senha é obrigatório.\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TokenAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mail\": \"\",\r\n  \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quality-eagles.qacoders.dev.br/api/login",
+							"protocol": "https",
+							"host": [
+								"quality-eagles",
+								"qacoders",
+								"dev",
+								"br"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "TokenAdmin",
+			"value": ""
+		}
+	]
+}

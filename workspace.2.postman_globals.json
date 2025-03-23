@@ -1,0 +1,279 @@
+{
+	"id": "6ad3a948-6c44-46cd-8c45-2a85e3be31fd",
+	"values": [
+		{
+			"key": "TokenAdmin",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRiNWU0MGU1YTAwMTU2MzRmMTM3ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRqcGFsRGFZUlYuQlpTVndqM0xPYS8uQ2FxWC9CTVFzelFmNDdDZmp6dWJBTzVrRXA2anA2SyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoic2V4dGEtZmVpcmEsIDA2LzA5LzIwMjQsIDE2OjU1OjQ0IEJSVCIsInJlZ2lzdHJhdGlvbk51bWJlciI6IjAxIiwiY29tcGFueUlkIjoiUWEuQ29kZXJzIiwiX2lkIjoiNjZkYjVlNDBlNWEwMDE1NjM0ZjEzN2U3In1dLCJfX3YiOjAsImlhdCI6MTc0MTMwNzQ0NiwiZXhwIjoxNzQxMzkzODQ2fQ.TbZVP3VTqOt1V77-eecXWgoJXQuIxnFiUc2barsFEBo",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TokenUser",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2QzMWFmYTExZDVmZjc2MjkwNWI4ZTgiLCJmdWxsTmFtZSI6IkFydGh1ciBGZXJyZWlyYSIsIm1haWwiOiJhcnRodXJmZXJyZWlyYUBxYWNvZGVycy5jb20uYnIiLCJwYXNzd29yZCI6IiQyYiQxMCQwL1JxYmN2L0JMWldhbkF6UklDNEIuckR5dWhnZEV2ejRHT29DNnQvRFB4a3hHbldFRzBJNiIsImFjY2Vzc1Byb2ZpbGUiOiJBRE1JTiIsImNwZiI6Ijk1Nzc3MjMxMjM0Iiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjY3YWU1OWQ0ZTg1MTBhNjk0YjYzY2UwZSIsInVzZXJMb2dpbiI6ImFxdWlsZXNfZnV6ZXRpQGJvbC5jb20ifSwicmVnaXN0cmF0aW9uRGF0ZSI6InF1aW50YS1mZWlyYSwgMTMvMDMvMjAyNSwgMTQ6NTA6NTAgQlJUIiwicmVnaXN0cmF0aW9uTnVtYmVyIjoiUWFDb2RlcnMtNTg3OSIsIl9pZCI6IjY3ZDMxYWZhMTFkNWZmNzYyOTA1YjhlOSJ9XSwiX192IjowLCJpYXQiOjE3NDIyMzM3MjksImV4cCI6MTc0MjMyMDEyOX0.IJEcCt1GdgvXSdqgW58wda9mPXrhHhj-MMYWuJ0oDN4",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "initial_count",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "active_count",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "inactive_count",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "mailAdmin",
+			"value": "sysadmin@qacoders.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "passAdmin",
+			"value": "1234@Test",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fullName",
+			"value": "Aquiles Fuzeti",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "mailUser",
+			"value": "aquiles_fuzeti@bol.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "cpf",
+			"value": "96713214487",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "passUser",
+			"value": "Avestruz@171",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "passU",
+			"value": "Avestruz@171",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "ID_USER",
+			"value": "67ae59d4e8510a694b63ce0e",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://quality-eagles.qacoders.dev.br",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "FirstName",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "LastName",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "initial_inactive_count",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "initial_active_count",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "MsgPasswordRequired",
+			"value": "O campo senha é obrigatório",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "MsgMailRequired",
+			"value": "O campo e-mail é obrigatório",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "MsgMailPasswordInvalid",
+			"value": "E-mail ou senha informados são inválidos",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "CorporateName",
+			"value": "Doces Acucares",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "RegisterCompany",
+			"value": "12126456000155",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "MailCompany",
+			"value": "test@test.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "MatrisCompany",
+			"value": "Teste",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ResponsibleContac",
+			"value": "Phill",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TelephoneCompany",
+			"value": "99999999999999999999999999999999999999999999999999",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ServiceDescriptio",
+			"value": "Testes",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "matrizCompany",
+			"value": "Teste",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "status",
+			"value": "true",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "CountryCompany",
+			"value": "Brasil",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ZipCodeCompany",
+			"value": "04777001",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "CityCompany",
+			"value": "Sao Paulo",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "StateCompany",
+			"value": "SP",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "DistrictcCompany",
+			"value": "Rua das Flores",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "StreeCompany",
+			"value": "Avenida Interlagos",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "NumberCompany",
+			"value": "85",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ComplementCompany",
+			"value": "de 4503 ao fim - lado ímpar",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "_id_Company",
+			"value": "6570d8fcc41ee4129739855c",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "12126456000155",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "test@test.com",
+			"value": "docess@acucarrs.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "msgAdmin",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "ID_INEXISTENTE",
+			"value": "67052",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TelephoneCompanyMais",
+			"value": "99999999999999999999999999",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TelephoneCompanyMenos",
+			"value": "9999999999999",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2025-03-23T17:44:27.245Z",
+	"_postman_exported_using": "Postman/11.37.5"
+}
