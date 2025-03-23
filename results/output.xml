@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2025-03-23T00:43:44.646256" rpa="false" schemaversion="5">
+<suite id="s1" name="Academy-13-Quality-Eagles robot" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot">
+<suite id="s1-s1" name="Web.User" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot\web.user.robot">
+<test id="s1-s1-t1" name="Cadastrar usuário com dados válidos" line="51">
+<kw name="FakerLibrary.First Name">
+<msg time="2025-03-23T00:43:46.279884" level="FAIL">No keyword with name 'FakerLibrary.First Name' found.</msg>
+<var>${nomeCompleto}</var>
+<status status="FAIL" start="2025-03-23T00:43:46.270911" elapsed="0.012964">No keyword with name 'FakerLibrary.First Name' found.</status>
+</kw>
+<kw name="${nomeCompleto}@example.com">
+<var>${email}</var>
+<status status="NOT RUN" start="2025-03-23T00:43:46.298836" elapsed="0.007979"/>
+</kw>
+<kw name="Administrador">
+<var>${perfilAcesso}</var>
+<status status="NOT RUN" start="2025-03-23T00:43:46.316787" elapsed="0.007979"/>
+</kw>
+<kw name="FakerLibrary.CPF">
+<var>${cpf}</var>
+<status status="NOT RUN" start="2025-03-23T00:43:46.327756" elapsed="0.007980"/>
+</kw>
+<kw name="FakerLibrary.Password">
+<var>${senha}</var>
+<status status="NOT RUN" start="2025-03-23T00:43:46.339728" elapsed="0.003986"/>
+</kw>
+<kw>
+<var>${confirmarSenha}=</var>
+<var>${senha}</var>
+<status status="NOT RUN" start="2025-03-23T00:43:46.352691" elapsed="0.000000"/>
+</kw>
+<kw name="Cadastrar Novo Usuário">
+<arg>${nomeCompleto}</arg>
+<arg>${email}</arg>
+<arg>${perfilAcesso}</arg>
+<arg>${cpf}</arg>
+<arg>${senha}</arg>
+<arg>${confirmarSenha}</arg>
+<status status="NOT RUN" start="2025-03-23T00:43:46.353688" elapsed="0.000996"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${button_Salvar}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-03-23T00:43:46.355683" elapsed="0.000999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${button_Salvar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-23T00:43:46.357678" elapsed="0.000998"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${modal_NovoCadastro}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-03-23T00:43:46.359672" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-03-23T00:43:46.361667" elapsed="0.001997"/>
+</kw>
+<doc>Valida o cadastro de um novo usuário com dados válidos.</doc>
+<status status="FAIL" start="2025-03-23T00:43:46.259939" elapsed="0.104720">No keyword with name 'FakerLibrary.First Name' found.</status>
+</test>
+<status status="FAIL" start="2025-03-23T00:43:44.723051" elapsed="1.646596"/>
+</suite>
+<status status="FAIL" start="2025-03-23T00:43:44.662213" elapsed="1.714414"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Academy-13-Quality-Eagles robot">Academy-13-Quality-Eagles robot</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Web.User">Academy-13-Quality-Eagles robot.Web.User</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
