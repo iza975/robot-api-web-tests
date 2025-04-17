@@ -1,10 +1,12 @@
 *** Settings ***
+Documentation        Validaçôes de bugs de login/Web
+
 Library    SeleniumLibrary
 Library    OperatingSystem
 
 *** Variables ***
-#${URL}                https://quality-eagles-front.qacoders.dev.br/login
-${URL}                 https://automacao.qacoders-academy.com.br/login
+${URL}                https://quality-eagles-front.qacoders.dev.br/login
+#${URL}                 https://automacao.qacoders-academy.com.br/login
 ${BROWSER}            Chrome
 ${btn_entrar}         button[id=login]
 ${input_email}        input[id=email]
@@ -18,7 +20,8 @@ ${msg_email_obrigatorio}        //p[contains(text(), 'O email é obrigatório')]
 ${EMAIL_ID}                      id=email  
 ${PASSWORD_ID}                   id=password     
 ${Expected_Text_Slogan}          Formando Profissionais de Qualidade
-${link_acesse_aqui}              css:.css-c3vxn9
+${link_acesse_aqui}              css:.css-ks2d6a
+
 ${MENSAGEM_ERRO}        xpath=//h1[contains(text(), 'E-mail ou senha informados são inválidos')]
 
 *** Test Cases ***   

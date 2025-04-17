@@ -1,11 +1,11 @@
 *** Settings ***
-Documentation        Configuração iniciais do projeto (post)
+Documentation        Login de Usuario/Api
 
 Library        RequestsLibrary
 Library        libs/get_fake_company.py
 
 *** Variables ***
-${BASE_URL}        https://quality-eagles.qacoders.dev.br/api/
+${BASE_URL}     https://quality-eagles.qacoders.dev.br/api/ 
 
 *** Test Cases *** 
 CT01 - Realizar Login com sucesso

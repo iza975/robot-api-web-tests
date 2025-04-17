@@ -1,70 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2025-03-23T00:43:44.646256" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2025-04-17T16:04:51.308528" rpa="false" schemaversion="5">
 <suite id="s1" name="Academy-13-Quality-Eagles robot" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot">
-<suite id="s1-s1" name="Web.User" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot\web.user.robot">
-<test id="s1-s1-t1" name="Cadastrar usuário com dados válidos" line="51">
-<kw name="FakerLibrary.First Name">
-<msg time="2025-03-23T00:43:46.279884" level="FAIL">No keyword with name 'FakerLibrary.First Name' found.</msg>
-<var>${nomeCompleto}</var>
-<status status="FAIL" start="2025-03-23T00:43:46.270911" elapsed="0.012964">No keyword with name 'FakerLibrary.First Name' found.</status>
+<suite id="s1-s1" name="Company.Copia" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot\company.copia.robot">
+<test id="s1-s1-t1" name="TC01 - Realizar Login e Criar Empresa" line="11">
+<kw name="Pegar Token">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T16:04:54.206772" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=sysadmin@qacoders.com</arg>
+<arg>password=1234@Test</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T16:04:54.205776" elapsed="0.001994"/>
 </kw>
-<kw name="${nomeCompleto}@example.com">
-<var>${email}</var>
-<status status="NOT RUN" start="2025-03-23T00:43:46.298836" elapsed="0.007979"/>
+<kw name="Criar Sessao">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T16:04:54.211760" level="INFO">${headers} = {'accept': 'application/json', 'content-type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T16:04:54.209767" elapsed="0.002990"/>
 </kw>
-<kw name="Administrador">
-<var>${perfilAcesso}</var>
-<status status="NOT RUN" start="2025-03-23T00:43:46.316787" elapsed="0.007979"/>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-04-17T16:04:54.214752" level="INFO">Creating Session using : alias=qualityeagles, url=https://quality-eagles.qacoders.dev.br/api/, headers={'accept': 'application/json', 'content-type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=qualityeagles</arg>
+<arg>url=${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-04-17T16:04:54.212757" elapsed="0.002991"/>
 </kw>
-<kw name="FakerLibrary.CPF">
-<var>${cpf}</var>
-<status status="NOT RUN" start="2025-03-23T00:43:46.327756" elapsed="0.007980"/>
+<doc>Criando sessão inicial para usar nas próximas requests</doc>
+<status status="PASS" start="2025-04-17T16:04:54.208767" elapsed="0.006981"/>
 </kw>
-<kw name="FakerLibrary.Password">
-<var>${senha}</var>
-<status status="NOT RUN" start="2025-03-23T00:43:46.339728" elapsed="0.003986"/>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-04-17T16:04:57.512484" level="INFO">POST Request : url=https://quality-eagles.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-04-17T16:04:57.515503" level="INFO">POST Response : url=https://quality-eagles.qacoders.dev.br/api/login 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.18.0 (Ubuntu)', 'Date': 'Thu, 17 Apr 2025 19:04:53 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'ETag': 'W/"534-D1NuHsDePanePNNDJPCxXuNHu2E"', 'Content-Encoding': 'gzip'} 
+ body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"66db5e40e5a0015634f137e6","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$jpalDaYRV.BZSVwj3LOa/.CaqX/BMQszQf47CfjzubAO5kEp6jp6K","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"sexta-feira, 06/09/2024, 16:55:44 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"66db5e40e5a0015634f137e7"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRiNWU0MGU1YTAwMTU2MzRmMTM3ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRqcGFsRGFZUlYuQlpTVndqM0xPYS8uQ2FxWC9CTVFzelFmNDdDZmp6dWJBTzVrRXA2anA2SyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoic2V4dGEtZmVpcmEsIDA2LzA5LzIwMjQsIDE2OjU1OjQ0IEJSVCIsInJlZ2lzdHJhdGlvbk51bWJlciI6IjAxIiwiY29tcGFueUlkIjoiUWEuQ29kZXJzIiwiX2lkIjoiNjZkYjVlNDBlNWEwMDE1NjM0ZjEzN2U3In1dLCJfX3YiOjAsImlhdCI6MTc0NDkxNjY5MywiZXhwIjoxNzQ1MDAzMDkzfQ.0CBtJkmVUSLS39bH891mqg0-sX3ec8nRNZwEqRmoLUk"} 
+ </msg>
+<msg time="2025-04-17T16:04:57.516469" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=qualityeagles</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-04-17T16:04:54.216747" elapsed="3.299722"/>
 </kw>
-<kw>
-<var>${confirmarSenha}=</var>
-<var>${senha}</var>
-<status status="NOT RUN" start="2025-03-23T00:43:46.352691" elapsed="0.000000"/>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${resposta}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-04-17T16:04:57.517470" elapsed="0.000994"/>
 </kw>
-<kw name="Cadastrar Novo Usuário">
-<arg>${nomeCompleto}</arg>
-<arg>${email}</arg>
-<arg>${perfilAcesso}</arg>
-<arg>${cpf}</arg>
-<arg>${senha}</arg>
-<arg>${confirmarSenha}</arg>
-<status status="NOT RUN" start="2025-03-23T00:43:46.353688" elapsed="0.000996"/>
+<return>
+<value>${resposta.json()["token"]}</value>
+<status status="PASS" start="2025-04-17T16:04:57.519461" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-17T16:04:57.521457" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRiNWU0MGU1YTAwMTU2MzRmMTM3ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRqcGFsRGF...</msg>
+<var>${token}</var>
+<doc>Realizar Login e obter o token</doc>
+<status status="PASS" start="2025-04-17T16:04:54.202784" elapsed="3.318673"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${button_Salvar}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-03-23T00:43:46.355683" elapsed="0.000999"/>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-04-17T16:04:57.523451" level="INFO">Length is 763.</msg>
+<arg>${token}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-04-17T16:04:57.522454" elapsed="0.001995"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${button_Salvar}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-03-23T00:43:46.357678" elapsed="0.000998"/>
+<kw name="Create Company">
+<kw name="Get Fake Company" owner="get_fake_company">
+<msg time="2025-04-17T16:04:57.529434" level="INFO">${company_fake} = {'name': 'Peixoto Goncalves e Filhos', 'email': 'anthony-gabriel17@example.com', 'cnpj': '08725361000107', 'address': 'Campo Oliveira, 38\nSão Sebastião\n99676482 Costa de Barbosa / GO', 'phone': '+55...</msg>
+<var>${company_fake}</var>
+<doc>Gera dados de empresa fictícia com formatação adequada.</doc>
+<status status="PASS" start="2025-04-17T16:04:57.527441" elapsed="0.001993"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${modal_NovoCadastro}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-03-23T00:43:46.359672" elapsed="0.000000"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T16:04:57.531429" level="INFO">${body} = {'corporateName': 'Peixoto Goncalves e Filhos', 'corporateEmail': 'anthony-gabriel17@example.com', 'cnpj': '08725361000107'}</msg>
+<var>${body}</var>
+<arg>corporateName=${company_fake}[name]</arg>
+<arg>corporateEmail=${company_fake}[email]</arg>
+<arg>cnpj=${company_fake}[cnpj]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T16:04:57.530431" elapsed="0.001995"/>
 </kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="NOT RUN" start="2025-03-23T00:43:46.361667" elapsed="0.001997"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-17T16:04:57.534421" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRiNWU0MGU1YTAwMTU2MzRmMTM3ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd...</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${token}</arg>
+<arg>accept=application/json</arg>
+<arg>content-type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-17T16:04:57.532426" elapsed="0.002993"/>
 </kw>
-<doc>Valida o cadastro de um novo usuário com dados válidos.</doc>
-<status status="FAIL" start="2025-03-23T00:43:46.259939" elapsed="0.104720">No keyword with name 'FakerLibrary.First Name' found.</status>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-04-17T16:04:57.600245" level="INFO">POST Request : url=https://quality-eagles.qacoders.dev.br/api/company 
+ path_url=/api/company 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRiNWU0MGU1YTAwMTU2MzRmMTM3ZTYiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRqcGFsRGFZUlYuQlpTVndqM0xPYS8uQ2FxWC9CTVFzelFmNDdDZmp6dWJBTzVrRXA2anA2SyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoic2V4dGEtZmVpcmEsIDA2LzA5LzIwMjQsIDE2OjU1OjQ0IEJSVCIsInJlZ2lzdHJhdGlvbk51bWJlciI6IjAxIiwiY29tcGFueUlkIjoiUWEuQ29kZXJzIiwiX2lkIjoiNjZkYjVlNDBlNWEwMDE1NjM0ZjEzN2U3In1dLCJfX3YiOjAsImlhdCI6MTc0NDkxNjY5MywiZXhwIjoxNzQ1MDAzMDkzfQ.0CBtJkmVUSLS39bH891mqg0-sX3ec8nRNZwEqRmoLUk', 'Content-Length': '124'} 
+ body=b'{"corporateName": "Peixoto Goncalves e Filhos", "corporateEmail": "anthony-gabriel17@example.com", "cnpj": "08725361000107"}' 
+ </msg>
+<msg time="2025-04-17T16:04:57.601243" level="INFO">POST Response : url=https://quality-eagles.qacoders.dev.br/api/company 
+ status=403, reason=Forbidden 
+ headers={'Server': 'nginx/1.18.0 (Ubuntu)', 'Date': 'Thu, 17 Apr 2025 19:04:53 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'ETag': 'W/"2c-xKef5yLjBxNw1obTC++VAJHdlUI"', 'Content-Encoding': 'gzip'} 
+ body={"errors":["Failed to authenticate token."]} 
+ </msg>
+<msg time="2025-04-17T16:04:57.602240" level="FAIL">HTTPError: 403 Client Error: Forbidden for url: https://quality-eagles.qacoders.dev.br/api/company</msg>
+<var>${resposta}</var>
+<arg>alias=qualityeagles</arg>
+<arg>url=/company</arg>
+<arg>json=${body}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-04-17T16:04:57.535419" elapsed="0.073802">HTTPError: 403 Client Error: Forbidden for url: https://quality-eagles.qacoders.dev.br/api/company</status>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${resposta}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" start="2025-04-17T16:04:57.611217" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${resposta.json()["newCompany"]["_id"]}</value>
+<status status="NOT RUN" start="2025-04-17T16:04:57.612216" elapsed="0.000000"/>
+</return>
+<var>${company_id}</var>
+<arg>${token}</arg>
+<doc>Keyword para criar uma empresa</doc>
+<status status="FAIL" start="2025-04-17T16:04:57.525446" elapsed="0.087766">HTTPError: 403 Client Error: Forbidden for url: https://quality-eagles.qacoders.dev.br/api/company</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>ID da empresa criada: ${company_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T16:04:57.614208" elapsed="0.000000"/>
+</kw>
+<doc>Fluxo completo: Login e criação de empresa</doc>
+<status status="FAIL" start="2025-04-17T16:04:54.198794" elapsed="3.417408">HTTPError: 403 Client Error: Forbidden for url: https://quality-eagles.qacoders.dev.br/api/company</status>
 </test>
-<status status="FAIL" start="2025-03-23T00:43:44.723051" elapsed="1.646596"/>
+<status status="FAIL" start="2025-04-17T16:04:51.387317" elapsed="6.268780"/>
 </suite>
-<status status="FAIL" start="2025-03-23T00:43:44.662213" elapsed="1.714414"/>
+<status status="FAIL" start="2025-04-17T16:04:51.322490" elapsed="6.551023"/>
 </suite>
 <statistics>
 <total>
@@ -74,7 +153,7 @@
 </tag>
 <suite>
 <stat pass="0" fail="1" skip="0" id="s1" name="Academy-13-Quality-Eagles robot">Academy-13-Quality-Eagles robot</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Web.User">Academy-13-Quality-Eagles robot.Web.User</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Company.Copia">Academy-13-Quality-Eagles robot.Company.Copia</stat>
 </suite>
 </statistics>
 <errors>

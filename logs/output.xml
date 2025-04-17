@@ -1,684 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2025-03-21T17:38:16.931088" rpa="false" schemaversion="5">
-<suite id="s1" name="Bugs Web" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot\bugs_web.robot">
-<test id="s1-t1" name="T01 - Bug Validar Falha na mensagem de Erro ao Informar E-mail Inválido Bug" line="26">
-<kw name="Realizar Login">
-<kw name="Abrir Navegador">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:17.409153" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:38:17.408156" elapsed="34.515255"/>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2025-04-17T16:30:16.962081" rpa="false" schemaversion="5">
+<suite id="s1" name="Company.Copia" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot\company.copia.robot">
+<test id="s1-t1" name="Test Case 1 - Login and Create Company" line="12">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-04-17T16:30:18.309475" level="INFO">Creating Session using : alias=qualityeagles, url=https://example.com, headers=Create Dictionary accept=application/json content-type=application/json,                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<msg time="2025-04-17T16:30:18.310473" level="FAIL">ValueError: not enough values to unpack (expected 2, got 1)</msg>
+<arg>qualityeagles</arg>
+<arg>${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="FAIL" start="2025-04-17T16:30:18.308478" elapsed="0.003990">ValueError: not enough values to unpack (expected 2, got 1)</status>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:38:51.924408" elapsed="0.073803"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:38:17.407159" elapsed="34.592050"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:52.001209" level="INFO">Typing text 'sysadmin@qacoders' into text field 'css=input[id=email]'.</msg>
-<arg>css=${input_email}</arg>
+<kw name="Get Token">
+<var>${token}</var>
 <arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:38:51.999209" elapsed="0.342083"/>
+<arg>${password}</arg>
+<doc>Função que realiza o login e retorna o token</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.313465" elapsed="0.000000"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:52.342289" level="INFO">Typing text '1234@Test' into text field 'css=input[id=password]'.</msg>
-<arg>css=${input_senha}</arg>
-<arg>${senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:38:52.341292" elapsed="0.150598"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${address_item}</var>
+<arg>zipCode=04777001</arg>
+<arg>city=São Paulo</arg>
+<arg>state=SP</arg>
+<arg>district=Rua das Flores</arg>
+<arg>street=Avenida Interlagos</arg>
+<arg>number=50</arg>
+<arg>complement=de 4503 ao fim - lado ímpar</arg>
+<arg>country=Brasil</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.314463" elapsed="0.000000"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:52.492887" level="INFO">Clicking button 'css=button[id=login]'.</msg>
-<arg>css=${btn_entrar}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:38:52.491890" elapsed="0.140624"/>
+<kw name="Create List" owner="BuiltIn">
+<var>${address}</var>
+<arg>${address_item}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.315459" elapsed="0.000000"/>
 </kw>
-<arg>email=sysadmin@qacoders</arg>
-<arg>senha=1234@Test</arg>
-<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
-<status status="PASS" start="2025-03-21T17:38:17.407159" elapsed="35.226352"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${body}</var>
+<arg>corporateName=Teste do Teste</arg>
+<arg>registerCompany=12120056000155</arg>
+<arg>mail=test@test.com</arg>
+<arg>matriz=Teste</arg>
+<arg>responsibleContact=Marcio</arg>
+<arg>telephone=99999999999999</arg>
+<arg>serviceDescription=Testes</arg>
+<arg>address=${address}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.316459" elapsed="0.000995"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css=${msg_error}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:38:52.634509" elapsed="0.895774"/>
+<kw name="POST On Session" owner="RequestsLibrary">
+<var>${resposta}</var>
+<arg>alias=qualityeagles</arg>
+<arg>url=/company</arg>
+<arg>json=${body}</arg>
+<arg>headers=${headers}</arg>
+<arg>token=${token}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.317454" elapsed="0.000000"/>
 </kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:53.559207" level="INFO">Element 'css=div[class*=MuiAlert-standard]' is displayed.</msg>
-<arg>css=${msg_error}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:38:53.531280" elapsed="0.027927"/>
+<kw name="Log" owner="BuiltIn">
+<arg>Response: ${resposta}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.319449" elapsed="0.000000"/>
 </kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:53.695317" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-43.png"&gt;&lt;img src="selenium-element-screenshot-43.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>css=${msg_error}</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2025-03-21T17:38:53.559207" elapsed="0.136110"/>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${company_id}</var>
+<arg>${resposta.json()}</arg>
+<arg>newCompany._id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.320447" elapsed="0.000000"/>
 </kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:53.848906" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-78.png"&gt;&lt;img src="selenium-screenshot-78.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:38:53.695317" elapsed="0.153589"/>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${company_id}</arg>
+<arg>Company ID should not be empty</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.320447" elapsed="0.000000"/>
 </kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:38:53.851901" elapsed="2.520020"/>
+<kw name="Log" owner="BuiltIn">
+<arg>Company created with ID: ${company_id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-17T16:30:18.321445" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-03-21T17:38:53.850902" elapsed="2.521019"/>
-</kw>
-<doc>Verifica se a mensagem de erro "E-mail ou senha informados são inválidos" é exibida quando o e-mail informado é inválido.</doc>
-<status status="PASS" start="2025-03-21T17:38:17.405164" elapsed="38.967761"/>
+<doc>Test for logging in, getting the token, and creating a company</doc>
+<status status="FAIL" start="2025-04-17T16:30:18.305486" elapsed="0.016956">ValueError: not enough values to unpack (expected 2, got 1)</status>
 </test>
-<test id="s1-t2" name="T02 - Bug Validar Mensagem de Erro ao Informar &quot;Senha Iválida&quot; . BUG" line="35">
-<kw name="Realizar Login">
-<kw name="Abrir Navegador">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:38:56.376480" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:38:56.376480" elapsed="6.700079"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:39:03.076559" elapsed="0.061832"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:38:56.375479" elapsed="6.762912"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:03.139392" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
-<arg>css=${input_email}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:03.139392" elapsed="0.434832"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:03.574224" level="INFO">Typing text '234@Tests' into text field 'css=input[id=password]'.</msg>
-<arg>css=${input_senha}</arg>
-<arg>${senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:03.574224" elapsed="0.147606"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:03.722828" level="INFO">Clicking button 'css=button[id=login]'.</msg>
-<arg>css=${btn_entrar}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:03.721830" elapsed="0.136633"/>
-</kw>
-<arg>email=sysadmin@qacoders.com</arg>
-<arg>senha=234@Tests</arg>
-<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
-<status status="PASS" start="2025-03-21T17:38:56.375479" elapsed="7.482984"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css=${msg_error}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:03.859461" elapsed="0.249102"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:04.143469" level="INFO">Element 'css=div[class*=MuiAlert-standard]' is displayed.</msg>
-<arg>css=${msg_error}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:04.109560" elapsed="0.034907"/>
-</kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:04.293660" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-44.png"&gt;&lt;img src="selenium-element-screenshot-44.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>css=${msg_error}</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2025-03-21T17:39:04.144467" elapsed="0.149193"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:04.472758" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-79.png"&gt;&lt;img src="selenium-screenshot-79.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:39:04.294658" elapsed="0.179068"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:39:04.474724" elapsed="2.374491"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:04.473726" elapsed="2.375489"/>
-</kw>
-<doc>Verifica se a mensagem de erro "E-mail ou senha informados são inválidos" é exibida quando a senha informada é incorreta.</doc>
-<status status="PASS" start="2025-03-21T17:38:56.374342" elapsed="10.475876"/>
-</test>
-<test id="s1-t3" name="T03 - Bug Validar Mensagem de Erro ao informar &quot;E-mail&quot; em branco." line="44">
-<kw name="Realizar Login">
-<kw name="Abrir Navegador">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:06.854212" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:39:06.853213" elapsed="5.423903"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:39:12.277116" elapsed="0.059840"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:06.853213" elapsed="5.483743"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:12.338952" level="INFO">Typing text '' into text field 'css=input[id=email]'.</msg>
-<arg>css=${input_email}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:12.337951" elapsed="0.246343"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:12.586288" level="INFO">Typing text '1234@Test' into text field 'css=input[id=password]'.</msg>
-<arg>css=${input_senha}</arg>
-<arg>${senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:12.585291" elapsed="0.188496"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:12.774786" level="INFO">Clicking button 'css=button[id=login]'.</msg>
-<arg>css=${btn_entrar}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:12.774786" elapsed="0.152591"/>
-</kw>
-<arg>email=</arg>
-<arg>senha=1234@Test</arg>
-<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
-<status status="PASS" start="2025-03-21T17:39:06.852217" elapsed="6.075160"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:39:14.928471" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:12.928374" elapsed="2.000097"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${msg_email_obrigatorio}</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:14.929470" elapsed="0.055851"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:15.019230" level="INFO">Element 'xpath=//p[contains(text(), 'O email é obrigatório')]' is displayed.</msg>
-<arg>xpath=${msg_email_obrigatorio}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:14.987314" elapsed="0.031916"/>
-</kw>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=${msg_email_obrigatorio}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-03-21T17:39:14.986325" elapsed="0.032905"/>
-</kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:15.161848" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-45.png"&gt;&lt;img src="selenium-element-screenshot-45.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>xpath=${msg_email_obrigatorio}</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2025-03-21T17:39:15.020226" elapsed="0.141622"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:39:15.172820" elapsed="3.966141"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:15.171822" elapsed="3.967139"/>
-</kw>
-<doc>Verifica se a mensagem "O email é obrigatório" é exibida quando o campo de e-mail está em branco.</doc>
-<status status="PASS" start="2025-03-21T17:39:06.851218" elapsed="12.288450"/>
-</test>
-<test id="s1-t4" name="T04 - Bug Validar mensagem de erro ao informar &quot;Senha&quot; em branco." line="53">
-<kw name="Realizar Login">
-<kw name="Abrir Navegador">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:19.143337" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:39:19.143337" elapsed="6.199507"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:39:25.343839" elapsed="0.073813"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:19.142335" elapsed="6.276306"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:25.419640" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
-<arg>css=${input_email}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:25.418641" elapsed="0.404914"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:25.823555" level="INFO">Typing text '' into text field 'css=input[id=password]'.</msg>
-<arg>css=${input_senha}</arg>
-<arg>${senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:25.823555" elapsed="0.114693"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:25.939245" level="INFO">Clicking button 'css=button[id=login]'.</msg>
-<arg>css=${btn_entrar}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:25.938248" elapsed="0.181517"/>
-</kw>
-<arg>email=sysadmin@qacoders.com</arg>
-<arg>senha=</arg>
-<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
-<status status="PASS" start="2025-03-21T17:39:19.142335" elapsed="6.978426"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:39:28.122016" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:26.120761" elapsed="2.001255"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${msg_senha_obrigatoria}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:28.123025" elapsed="0.036759"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:39:33.160990" level="INFO">Slept 5 seconds.</msg>
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:28.160819" elapsed="5.000171"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:33.193406" level="INFO">Element 'xpath=//p[contains(text(), 'A senha é obrigatória')]' is displayed.</msg>
-<arg>xpath=${msg_senha_obrigatoria}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:33.161993" elapsed="0.031413"/>
-</kw>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=${msg_senha_obrigatoria}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-03-21T17:39:33.160990" elapsed="0.032416"/>
-</kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:33.375967" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-46.png"&gt;&lt;img src="selenium-element-screenshot-46.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>xpath=${msg_senha_obrigatoria}</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2025-03-21T17:39:33.194475" elapsed="0.182491"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:39:33.377964" elapsed="2.454209"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:33.377964" elapsed="2.454209"/>
-</kw>
-<doc>Verifica se a mensagem "A senha é obrigatória" é exibida quando o campo de senha está em branco.</doc>
-<status status="PASS" start="2025-03-21T17:39:19.141323" elapsed="16.691519"/>
-</test>
-<test id="s1-t5" name="T05 - Bug Validar Falha no Link &quot;Esqueci Minha Senhas&quot;" line="63">
-<kw name="Realizar Login">
-<kw name="Abrir Navegador">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:35.836398" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:39:35.836398" elapsed="6.195625"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:39:42.032023" elapsed="0.056848"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:35.835396" elapsed="6.254472"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:42.090872" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
-<arg>css=${input_email}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:42.089868" elapsed="0.397935"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:42.488801" level="INFO">Typing text '' into text field 'css=input[id=password]'.</msg>
-<arg>css=${input_senha}</arg>
-<arg>${senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:42.487803" elapsed="0.118682"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:42.607485" level="INFO">Clicking button 'css=button[id=login]'.</msg>
-<arg>css=${btn_entrar}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:42.606485" elapsed="0.137633"/>
-</kw>
-<arg>email=sysadmin@qacoders.com</arg>
-<arg>senha=</arg>
-<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
-<status status="PASS" start="2025-03-21T17:39:35.835396" elapsed="6.908722"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${link_esqueci_minha_senhas}</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:39:42.746113" elapsed="0.043889"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:39:44.791296" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:42.790993" elapsed="2.000303"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:44.792301" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Esqueci minha senhas')]'.</msg>
-<arg>xpath=${link_esqueci_minha_senhas}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:39:44.792301" elapsed="0.116422"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:39:46.909942" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:44.909721" elapsed="2.000221"/>
-</kw>
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:46.919293" level="INFO">${current_url} = https://automacao.qacoders-academy.com.br/login</msg>
-<var>${current_url}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-03-21T17:39:46.910951" elapsed="0.008342"/>
-</kw>
-<kw name="Execute Javascript" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:46.920297" level="INFO">Executing JavaScript:
-window.location.href='https://automacao.qacoders-academy.com.br/login'
-Without any arguments.</msg>
-<arg>window.location.href='https://automacao.qacoders-academy.com.br/login'</arg>
-<doc>Executes the given JavaScript code with possible arguments.</doc>
-<status status="PASS" start="2025-03-21T17:39:46.920297" elapsed="0.148283"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:39:49.070204" level="INFO">Slept 2 seconds.</msg>
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:47.069576" elapsed="2.000628"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${current_url}</arg>
-<arg>${URL}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-03-21T17:39:49.070204" elapsed="0.001023"/>
-</kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:49.251974" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-47.png"&gt;&lt;img src="selenium-element-screenshot-47.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>xpath=${link_esqueci_minha_senhas}</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2025-03-21T17:39:49.072221" elapsed="0.179753"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:49.381624" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-80.png"&gt;&lt;img src="selenium-screenshot-80.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:39:49.252969" elapsed="0.128655"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:39:49.387616" elapsed="3.976123"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:39:49.386616" elapsed="3.977123"/>
-</kw>
-<doc>Verifica se o link "Esqueci minha senha" e redirecionado para a página correta.</doc>
-<status status="PASS" start="2025-03-21T17:39:35.834462" elapsed="17.529975"/>
-</test>
-<test id="s1-t6" name="T06 - Bug Erro de Posição da Logo: Qa.Coders Academy" line="78">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:39:53.367334" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:39:53.367334" elapsed="5.646726"/>
-</kw>
-<kw name="Wait Until Location Is" owner="SeleniumLibrary">
-<arg>${URL}</arg>
-<doc>Waits until the current URL is ``expected``.</doc>
-<status status="PASS" start="2025-03-21T17:39:59.017050" elapsed="0.039893"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-21T17:40:04.058204" level="INFO">Slept 5 seconds.</msg>
-<arg>05</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-21T17:39:59.057940" elapsed="5.000264"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:04.157531" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-81.png"&gt;&lt;img src="selenium-screenshot-81.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:40:04.059209" elapsed="0.098322"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:40:04.158529" elapsed="2.395514"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:40:04.158529" elapsed="2.395514"/>
-</kw>
-<doc>Verifica a orientação da logo do QA Coders Academy (se está na vertical ou não).</doc>
-<status status="PASS" start="2025-03-21T17:39:53.365801" elapsed="13.189249"/>
-</test>
-<test id="s1-t7" name="T07 - Bug Validar Exibição do Slogan &quot;Formando Profissionais de Qualidade&quot; BUG" line="85">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:06.557665" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:40:06.557665" elapsed="5.505517"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:40:12.064177" elapsed="0.075798"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:12.398952" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-82.png"&gt;&lt;img src="selenium-screenshot-82.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-21T17:40:12.398952" level="FAIL">Page should have contained text 'Formando Profissionais de Qualidade' but did not.</msg>
-<arg>Formando Profissionais de Qualidade</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2025-03-21T17:40:12.141973" elapsed="0.260000">Page should have contained text 'Formando Profissionais de Qualidade' but did not.</status>
-</kw>
-<msg time="2025-03-21T17:40:12.401973" level="INFO">${existe} = False</msg>
-<var>${existe}</var>
-<arg>Page Should Contain</arg>
-<arg>Formando Profissionais de Qualidade</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-03-21T17:40:12.140972" elapsed="0.261001"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:12.520871" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="slogan_nao_existe.png"&gt;&lt;img src="slogan_nao_existe.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>slogan_nao_existe.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:40:12.403941" elapsed="0.116930"/>
-</kw>
-<arg>not ${existe}</arg>
-<arg>Capture Page Screenshot</arg>
-<arg>slogan_nao_existe.png</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-03-21T17:40:12.402974" elapsed="0.117897"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:40:12.521871" elapsed="2.367857"/>
-</kw>
-<doc>Verifica se o slogan "Formando Profissionais de Qualidade" está visível na tela de login.</doc>
-<status status="PASS" start="2025-03-21T17:40:06.556214" elapsed="8.334519"/>
-</test>
-<test id="s1-t8" name="T08 - Bug Validar Orientação Vertical do Slogan Qa.Coders Academy" line="93">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:14.893382" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:40:14.893382" elapsed="5.447045"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-03-21T17:40:20.341424" elapsed="0.071807"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:20.698786" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-83.png"&gt;&lt;img src="selenium-screenshot-83.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-03-21T17:40:20.698786" level="FAIL">Page should have contained text 'Qa.CodersAcademy' but did not.</msg>
-<arg>Qa.CodersAcademy</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="FAIL" start="2025-03-21T17:40:20.415233" elapsed="0.285544">Page should have contained text 'Qa.CodersAcademy' but did not.</status>
-</kw>
-<msg time="2025-03-21T17:40:20.700777" level="INFO">${existe} = False</msg>
-<var>${existe}</var>
-<arg>Page Should Contain</arg>
-<arg>Qa.CodersAcademy</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-03-21T17:40:20.415233" elapsed="0.285544"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${existe}</arg>
-<arg>Capture Page Screenshot</arg>
-<arg>slogan_existe.png</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-03-21T17:40:20.700777" elapsed="0.001001"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:40:20.702773" elapsed="2.380150"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:40:20.701778" elapsed="2.381145"/>
-</kw>
-<doc>Verifica a orientação correta do slogan "QA Coders Academy" (se está na orientação vertical).</doc>
-<status status="PASS" start="2025-03-21T17:40:14.891844" elapsed="8.191826"/>
-</test>
-<test id="s1-t9" name="T09 - Bug Validar Funcionalidade do Link &quot;Acesse Aqui&quot;" line="101">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:23.086553" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:40:23.086553" elapsed="5.521447"/>
-</kw>
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:28.649890" level="INFO">${url_antes} = https://automacao.qacoders-academy.com.br/login</msg>
-<var>${url_antes}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-03-21T17:40:28.608997" elapsed="0.040893"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:28.882627" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-84.png"&gt;&lt;img src="selenium-screenshot-84.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:40:28.650886" elapsed="0.231741"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:28.886616" level="INFO">Clicking element 'css:.css-c3vxn9'.</msg>
-<arg>css:.css-c3vxn9</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:40:28.885618" elapsed="0.151596"/>
-</kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:29.195020" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-48.png"&gt;&lt;img src="selenium-element-screenshot-48.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>css:.css-c3vxn9</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2025-03-21T17:40:29.038210" elapsed="0.157809"/>
-</kw>
-<kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:29.203996" level="INFO">${url_depois} = https://automacao.qacoders-academy.com.br/login</msg>
-<var>${url_depois}</var>
-<doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2025-03-21T17:40:29.198015" elapsed="0.005981"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${url_antes}</arg>
-<arg>${url_depois}</arg>
-<arg>O link redirecionou, mas não deveria.</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-03-21T17:40:29.204995" elapsed="0.000000"/>
-</kw>
-<kw name="Fechar Navegador">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:40:29.206992" elapsed="2.373419"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:40:29.205991" elapsed="2.374420"/>
-</kw>
-<doc>Valida se o link "Acesse aqui" está sem redirecionamento</doc>
-<status status="PASS" start="2025-03-21T17:40:23.085043" elapsed="8.496365"/>
-</test>
-<test id="s1-t10" name="T10 - Bug Verificar Link Esqueci Minha Senha" line="111">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:31.584400" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:40:31.583403" elapsed="5.645178"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:37.337286" level="INFO">${elemento} = Esqueci minha senhas</msg>
-<var>${elemento}</var>
-<arg>//a[contains(text(), 'Esqueci minha senhas')]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:40:37.229576" elapsed="0.107710"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${elemento}</arg>
-<arg>Esqueci minha senha</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-03-21T17:40:37.338287" elapsed="0.000000"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:40:37.339283" elapsed="2.383267"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:40:31.582404" elapsed="8.141155"/>
-</test>
-<test id="s1-t11" name="T11 - Bug Mensagem &quot;E-mail ou senha informados são inválidos&quot; não aparece ao clicar em &quot;Esqueci minha senha&quot;" line="117">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:39.725817" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-21T17:40:39.725817" elapsed="5.389837"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${link_esqueci_minha_senhas}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-03-21T17:40:45.115654" elapsed="0.120679"/>
-</kw>
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:45.237330" level="INFO">Clicking link '//a[contains(text(), 'Esqueci minha senhas')]'.</msg>
-<arg>${link_esqueci_minha_senhas}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-21T17:40:45.236333" elapsed="0.164557"/>
-</kw>
-<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:45.421834" level="INFO">Element 'xpath=//h1[contains(text(), 'E-mail ou senha informados são inválidos')]' did not exist.</msg>
-<arg>${MENSAGEM_ERRO}</arg>
-<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
-<status status="PASS" start="2025-03-21T17:40:45.401887" elapsed="0.020944"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-03-21T17:40:45.543561" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-85.png"&gt;&lt;img src="selenium-screenshot-85.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-03-21T17:40:45.422831" elapsed="0.120730"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-03-21T17:40:45.544559" elapsed="2.383245"/>
-</kw>
-<status status="PASS" start="2025-03-21T17:40:39.724515" elapsed="8.203929"/>
-</test>
-<status status="PASS" start="2025-03-21T17:38:16.935105" elapsed="150.995730"/>
+<status status="FAIL" start="2025-04-17T16:30:16.967069" elapsed="1.357368"/>
 </suite>
 <statistics>
 <total>
-<stat pass="11" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="11" fail="0" skip="0" id="s1" name="Bugs Web">Bugs Web</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Company.Copia">Company.Copia</stat>
 </suite>
 </statistics>
 <errors>

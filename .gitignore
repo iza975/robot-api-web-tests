@@ -1,7 +1,0 @@
-# Ignorar arquivos de imagem (capturas de tela)
-*.png
-*.jpg
-*.jpeg
-*.gif
-# Ignorar a pasta de screenshots
-screenshots/

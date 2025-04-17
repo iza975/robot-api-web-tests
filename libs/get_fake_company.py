@@ -40,10 +40,15 @@ def limpar_cnpj(cnpj):
 def get_fake_company():
     """Gera dados de empresa fictícia com formatação adequada."""
     return {
-        "corporateName": limpar_ponto_nome(faker.company()),
-        "corporateEmail": faker.email(),
-        "cnpj": limpar_cnpj(faker.cnpj())
-           }
+        "name": limpar_ponto_nome(faker.company()),
+        "email": faker.email(),
+        "cnpj": limpar_cnpj(faker.cnpj()),
+        "address": faker.address(),
+        "phone": faker.phone_number(),
+        "responsavel": faker.name(),  # Adicionando a chave 'responsavel'
+        "descricao": faker.sentence()  # Exemplo de como adicionar outra chave
+    }
+
 def limpar_cpf(cpf):
     #remove pontos e traços
     cpf_limpo = cpf.replace('.','').replace('-','')

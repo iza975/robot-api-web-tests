@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2025-03-28T18:10:48.286687" rpa="false" schemaversion="5">
+<suite id="s1" name="Web" source="C:\Projetos-Academy\Academy-13-Quality-Eagles_robot\web.robot">
+<test id="s1-t1" name="CT01 - Tela de Login Exibida ao Acessar a Aplicação." line="47">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:10:48.837108" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:10:48.836511" elapsed="8.220709"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-03-28T18:10:57.058320" elapsed="0.045652"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-28T18:11:02.105834" level="INFO">Slept 5 seconds.</msg>
+<arg>05</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-28T18:10:57.105261" elapsed="5.000573"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:02.223231" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-28T18:11:02.106408" elapsed="0.116823"/>
+</kw>
+<kw name="Fechar Navegador">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-28T18:11:02.225028" elapsed="2.496113"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:11:02.224433" elapsed="2.497296"/>
+</kw>
+<doc>Verifica se a tela de login é exibida como primeira tela ao acessar a aplicação.</doc>
+<status status="PASS" start="2025-03-28T18:10:48.834131" elapsed="15.888177"/>
+</test>
+<test id="s1-t2" name="CT02 - Login com Sucesso e Redirecionamento à Página de Cadastro." line="55">
+<kw name="Realizar Login">
+<kw name="Abrir Navegador">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:04.725752" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:11:04.725173" elapsed="5.771005"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-28T18:11:10.496178" elapsed="0.081742"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:11:04.725173" elapsed="5.853499"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:10.581616" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
+<arg>css=${input_email}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:11:10.578672" elapsed="0.422171"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:11.001944" level="INFO">Typing text '1234@Test' into text field 'css=input[id=password]'.</msg>
+<arg>css=${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:11:11.001437" elapsed="0.210415"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:11.212851" level="INFO">Clicking button 'css=button[id=login]'.</msg>
+<arg>css=${btn_entrar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:11:11.212851" elapsed="0.202204"/>
+</kw>
+<arg>email=sysadmin@qacoders.com</arg>
+<arg>senha=1234@Test</arg>
+<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
+<status status="PASS" start="2025-03-28T18:11:04.724594" elapsed="6.690961"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=${div_cadastros}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-28T18:11:11.416406" elapsed="0.742295"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-28T18:11:14.160374" level="INFO">Slept 2 seconds.</msg>
+<arg>02</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-28T18:11:12.159553" elapsed="2.000821"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:14.201826" level="INFO">Element 'css=div[id=Cadastros]' is displayed.</msg>
+<arg>css=${div_cadastros}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-28T18:11:14.163367" elapsed="0.038966"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:14.370322" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-1.png"&gt;&lt;img src="selenium-element-screenshot-1.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>css=${div_cadastros}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2025-03-28T18:11:14.203002" elapsed="0.167320"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:14.535279" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-03-28T18:11:14.372735" elapsed="0.162544"/>
+</kw>
+<kw name="Fechar Navegador">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-28T18:11:14.537126" elapsed="2.511416"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:11:14.536230" elapsed="2.512312"/>
+</kw>
+<doc>Valida o login com sucesso e o redirecionamento correto para a página de cadastro.</doc>
+<status status="PASS" start="2025-03-28T18:11:04.723435" elapsed="12.326197"/>
+</test>
+<test id="s1-t3" name="CT03 - Validar Presença do Campo input E-mail na Tela de Login" line="65">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:17.052079" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:11:17.051486" elapsed="5.583276"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${EMAIL_ID}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-28T18:11:22.635340" elapsed="0.069563"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:22.762429" level="INFO">Element 'id=email' is displayed.</msg>
+<arg>${EMAIL_ID}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-28T18:11:22.706004" elapsed="0.056501"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:23.006271" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-2.png"&gt;&lt;img src="selenium-element-screenshot-2.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${EMAIL_ID}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2025-03-28T18:11:22.763124" elapsed="0.243147"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-28T18:11:23.007459" elapsed="2.449602"/>
+</kw>
+<doc>Verifica se o campo de input para o e-mail está presente e visível na tela de login.</doc>
+<status status="PASS" start="2025-03-28T18:11:17.050811" elapsed="8.407299"/>
+</test>
+<test id="s1-t4" name="CT04 - Validar Presença do Campo input Senha na Tela de Login" line="73">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:25.460638" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:11:25.460065" elapsed="5.571749"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PASSWORD_ID}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-28T18:11:31.033846" elapsed="0.059537"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:31.164677" level="INFO">Element 'id=password' is displayed.</msg>
+<arg>${PASSWORD_ID}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-28T18:11:31.095170" elapsed="0.069507"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:31.397366" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-3.png"&gt;&lt;img src="selenium-element-screenshot-3.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${PASSWORD_ID}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2025-03-28T18:11:31.165758" elapsed="0.231608"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-28T18:11:31.400512" elapsed="2.422594"/>
+</kw>
+<doc>Verifica se o campo de input para senha está presente e visível na tela de login.</doc>
+<status status="PASS" start="2025-03-28T18:11:25.458922" elapsed="8.364760"/>
+</test>
+<test id="s1-t5" name="CT05 - Validar Presença do Botão &quot;Entrar&quot; na Tela de Login" line="81">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:33.825939" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:11:33.825381" elapsed="5.518505"/>
+</kw>
+<kw name="Wait Until Location Is" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" start="2025-03-28T18:11:39.344820" elapsed="0.049969"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-28T18:11:49.396438" level="INFO">Slept 10 seconds.</msg>
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-28T18:11:39.395369" elapsed="10.001234"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=${btn_entrar}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-28T18:11:49.397173" elapsed="0.043496"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-28T18:11:51.441942" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-28T18:11:49.441177" elapsed="2.000765"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:51.477611" level="INFO">Element 'css=button[id=login]' is displayed.</msg>
+<arg>css=${btn_entrar}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-28T18:11:51.443626" elapsed="0.034492"/>
+</kw>
+<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
+<arg>css=${btn_entrar}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-03-28T18:11:51.480132" elapsed="0.065580"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:51.754208" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-4.png"&gt;&lt;img src="selenium-element-screenshot-4.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>css=${btn_entrar}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2025-03-28T18:11:51.546797" elapsed="0.207995"/>
+</kw>
+<kw name="Fechar Navegador">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-28T18:11:51.756048" elapsed="2.559702"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:11:51.755426" elapsed="2.560911"/>
+</kw>
+<doc>Verifica se o botão "Entrar" está presente e visível na tela de login.</doc>
+<status status="PASS" start="2025-03-28T18:11:33.824825" elapsed="20.493288"/>
+</test>
+<test id="s1-t6" name="CT06 - Cadastrar Usuário Com Sucesso" line="92">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:54.322037" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:11:54.321449" elapsed="5.418159"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Abrir Navegador">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:11:59.745201" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:11:59.745201" elapsed="6.420398"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-28T18:12:06.166166" elapsed="0.098038"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:11:59.743627" elapsed="6.520577"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:06.266205" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
+<arg>css=${input_email}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:12:06.265220" elapsed="0.387462"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:06.653929" level="INFO">Typing text '1234@Test' into text field 'css=input[id=password]'.</msg>
+<arg>css=${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:12:06.653350" elapsed="0.170038"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:06.823953" level="INFO">Clicking button 'css=button[id=login]'.</msg>
+<arg>css=${btn_entrar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:12:06.823953" elapsed="0.160679"/>
+</kw>
+<arg>email=sysadmin@qacoders.com</arg>
+<arg>senha=1234@Test</arg>
+<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
+<status status="PASS" start="2025-03-28T18:11:59.741978" elapsed="7.242654"/>
+</kw>
+<kw name="Acessar tela de Cadastro de Usuarios">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:47.090287" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-28T18:12:47.090878" level="FAIL">Element 'css=button.css-fvzsut' not visible after 40 seconds.</msg>
+<arg>css=button.css-fvzsut</arg>
+<arg>timeout=40s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-03-28T18:12:06.986306" elapsed="40.108957">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-03-28T18:12:47.095883" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=button.css-fvzsut</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:12:47.095883" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NOME}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-03-28T18:12:47.096390" elapsed="0.000100"/>
+</kw>
+<status status="FAIL" start="2025-03-28T18:12:06.986142" elapsed="40.110348">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</kw>
+<kw name="Preencher Formulario">
+<arg>João Silva</arg>
+<arg>joao@email.com</arg>
+<arg>Senha@123</arg>
+<arg>Senha@123</arg>
+<status status="NOT RUN" start="2025-03-28T18:12:47.097067" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${SALVAR_NOVO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:12:47.097695" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Cadastro realizado com sucesso</arg>
+<arg>5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-03-28T18:12:47.098301" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-03-28T18:12:47.098808" elapsed="0.000098"/>
+</kw>
+<status status="FAIL" start="2025-03-28T18:11:54.320031" elapsed="52.779479">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</test>
+<test id="s1-t7" name="CT07 - Validar Campo Nome Vazio" line="101">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:47.102488" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:12:47.101887" elapsed="5.764944"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Abrir Navegador">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:52.868862" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:12:52.868862" elapsed="6.126506"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-28T18:12:58.996374" elapsed="0.073712"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:12:52.868286" elapsed="6.201800"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:59.071268" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
+<arg>css=${input_email}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:12:59.070686" elapsed="0.438039"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:59.509312" level="INFO">Typing text '1234@Test' into text field 'css=input[id=password]'.</msg>
+<arg>css=${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:12:59.509312" elapsed="0.159324"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:12:59.669392" level="INFO">Clicking button 'css=button[id=login]'.</msg>
+<arg>css=${btn_entrar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:12:59.668772" elapsed="0.148631"/>
+</kw>
+<arg>email=sysadmin@qacoders.com</arg>
+<arg>senha=1234@Test</arg>
+<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
+<status status="PASS" start="2025-03-28T18:12:52.867337" elapsed="6.950666"/>
+</kw>
+<kw name="Acessar tela de Cadastro de Usuarios">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:13:40.059842" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-28T18:13:40.060432" level="FAIL">Element 'css=button.css-fvzsut' not visible after 40 seconds.</msg>
+<arg>css=button.css-fvzsut</arg>
+<arg>timeout=40s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-03-28T18:12:59.819480" elapsed="40.242779">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-03-28T18:13:40.062867" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=button.css-fvzsut</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:13:40.062867" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NOME}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-03-28T18:13:40.063460" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-03-28T18:12:59.818883" elapsed="40.244577">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</kw>
+<kw name="Preencher Formulario">
+<arg>${EMPTY}</arg>
+<arg>teste@email.com</arg>
+<arg>Senha@123</arg>
+<arg>Senha@123</arg>
+<status status="NOT RUN" start="2025-03-28T18:13:40.064071" elapsed="0.000508"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${SALVAR_NOVO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:13:40.064709" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Nome é obrigatório</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:13:40.065321" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-03-28T18:13:40.065917" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-03-28T18:12:47.101280" elapsed="52.965214">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</test>
+<test id="s1-t8" name="CT08 - Validar E-mail Inválido" line="110">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:13:40.069481" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:13:40.069481" elapsed="6.119191"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Abrir Navegador">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:13:46.194788" level="INFO">Opening browser 'Chrome' to base url 'https://automacao.qacoders-academy.com.br/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-28T18:13:46.194177" elapsed="6.055539"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-28T18:13:52.249716" elapsed="0.099573"/>
+</kw>
+<status status="PASS" start="2025-03-28T18:13:46.193685" elapsed="6.156110"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:13:52.350638" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'css=input[id=email]'.</msg>
+<arg>css=${input_email}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:13:52.350130" elapsed="0.475633"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:13:52.826349" level="INFO">Typing text '1234@Test' into text field 'css=input[id=password]'.</msg>
+<arg>css=${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:13:52.825763" elapsed="0.168980"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:13:52.995339" level="INFO">Clicking button 'css=button[id=login]'.</msg>
+<arg>css=${btn_entrar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-28T18:13:52.994743" elapsed="0.155948"/>
+</kw>
+<arg>email=sysadmin@qacoders.com</arg>
+<arg>senha=1234@Test</arg>
+<doc>Keyword usada para realizar login 2 orgumentos [email - senha]</doc>
+<status status="PASS" start="2025-03-28T18:13:46.192680" elapsed="6.958721"/>
+</kw>
+<kw name="Acessar tela de Cadastro de Usuarios">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-03-28T18:14:33.310761" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-03-28T18:14:33.311356" level="FAIL">Element 'css=button.css-fvzsut' not visible after 40 seconds.</msg>
+<arg>css=button.css-fvzsut</arg>
+<arg>timeout=40s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-03-28T18:13:53.152703" elapsed="40.160456">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-03-28T18:14:33.313159" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>css=button.css-fvzsut</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:14:33.313763" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NOME}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-03-28T18:14:33.313763" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-03-28T18:13:53.152105" elapsed="40.162164">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</kw>
+<kw name="Preencher Formulario">
+<arg>Maria Souza</arg>
+<arg>maria-email-com</arg>
+<arg>Senha@123</arg>
+<arg>Senha@123</arg>
+<status status="NOT RUN" start="2025-03-28T18:14:33.314901" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${SALVAR_NOVO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:14:33.315519" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Digite um e-mail válido</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-03-28T18:14:33.316027" elapsed="0.000104"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-03-28T18:14:33.316131" elapsed="0.000507"/>
+</kw>
+<status status="FAIL" start="2025-03-28T18:13:40.068279" elapsed="53.248460">Element 'css=button.css-fvzsut' not visible after 40 seconds.</status>
+</test>
+<status status="FAIL" start="2025-03-28T18:10:48.290830" elapsed="225.028870"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="3" skip="0" id="s1" name="Web">Web</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
